@@ -16,4 +16,7 @@ export class UsersService {
       .pipe(map((user: User[]) => user[0] ? user[0] : undefined));
   }
 
+  createNewUser(user: User): Observable<User>{
+    return this.httpClient.post<User>(`http://localhost:3000/users`, user);
+  }
 }

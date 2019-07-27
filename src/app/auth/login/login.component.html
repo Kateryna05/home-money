@@ -44,7 +44,7 @@
       *ngIf="form.get('password').invalid && form.get('password').touched"
     >
       <span *ngIf="form.get('password')['errors']['required']">Please, enter your password.</span>
-      <span *ngIf="form.get('password')['errors']['minlength']">
+      <span *ngIf="form.get('password')['errors']['minlength'] && form.get('password')['errors']['minlength']['requiredLength']">
         Password must be longer then
         {{ form.get('password')['errors']['minlength']['requiredLength'] }}
         characters. Now you have {{ form.get('password')['errors']['minlength']['actualLength'] }}.
