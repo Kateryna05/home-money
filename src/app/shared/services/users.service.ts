@@ -6,13 +6,14 @@ import { Observable } from 'rxjs';
 import { HttpClient} from '@angular/common/http';
 import { map } from 'rxjs/operators'
 
+
 @Injectable()
 export class UsersService {
-  constructor(private http: HttpClient ) {}
+  constructor(private httpClient: HttpClient ) {}
 
-  getUserByEmail(email: string): Observable<any> {
-    return this.http.get('http://localhost:3000/users?email=${email}')
-      .pipe(map((response: Response) => response.json()))
-    
+  getUserByEmail(email: string): Observable<User> {
+    return this.httpClient.get(`http://localhost:3000/users?email=${email}`)
+      .pipe(map((user: User[]) => user[0] ? user[0] : undefined));
   }
+
 }

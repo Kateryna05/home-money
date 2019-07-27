@@ -1,4 +1,4 @@
-<p class="text-xs-center">Войдите для работы</p>
+<p class="text-xs-center">Sign in to start work</p>
 <div
   class="alert alert-{{message.type}}"
   *ngIf="message.text"
@@ -24,7 +24,7 @@
       *ngIf="form.get('email').invalid && form.get('email').touched"
     >
       <span *ngIf="form.get('email')['errors']['required']">Please, enter your email.</span>
-      <span *ngIf="form.get('email')['errors']['email']">Email is incorect.</span>
+      <span *ngIf="form.get('email')['errors']['email']">Email is incorrect.</span>
     </span>
   </div>
   <div
@@ -47,7 +47,7 @@
       <span *ngIf="form.get('password')['errors']['minlength']">
         Password must be longer then
         {{ form.get('password')['errors']['minlength']['requiredLength'] }}
-        charcters. Now you have {{ form.get('password')['errors']['minlength']['actualLength'] }}.
+        characters. Now you have {{ form.get('password')['errors']['minlength']['actualLength'] }}.
       </span>
     </span>
   </div>

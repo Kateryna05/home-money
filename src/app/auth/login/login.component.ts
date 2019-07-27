@@ -40,12 +40,8 @@ export class LoginComponent implements OnInit {
         if (user) {
           if (user.password === formData.password) {
             // logic
-          } else {
-            this.showMessage('Пароль не верный');
-          }
-        } else {
-          this.showMessage('Такого пользователя не существует');
-        }
+          } else {  this.showMessage('Password is incorrect'); }
+          } else {  this.showMessage('This user does not exist'); }
       });
   }
 
