@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UsersService } from '../../shared/services/users.service';
 import { User } from '../../shared/models/user.model';
 import { Message } from '../../shared/models/message.model';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'wfm-login',
@@ -14,7 +16,12 @@ export class LoginComponent implements OnInit {
   form: FormGroup;
   message: Message;
 
-  constructor(private usersService: UsersService) {
+  constructor(
+        private usersService: UsersService,
+        private authService: AuthService,
+        private router: Router,
+
+        ) {
   }
 
   ngOnInit() {
@@ -38,10 +45,16 @@ export class LoginComponent implements OnInit {
     this.usersService.getUserByEmail(formData.email)
       .subscribe((user: User) => {
         if (user) {
-          if (user.password === formData.password) {
-            // logic
-          } else {  this.showMessage('Password is incorrect'); }
-          } else {  this.showMessage('This user does not exist'); }
+              if (user.password === formData.password) {
+                this.message.text = '';
+                window.localStorage.setItem('user', JSON.stringify(user));
+                this.authService.login();
+                //this.router.navigate([''])
+              }
+
+              else {  this.showMessage('Password is incorrect'); }}
+
+        else {  this.showMessage('This user does not exist'); }
       });
   }
 
