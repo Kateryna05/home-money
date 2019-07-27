@@ -1,63 +1,68 @@
-<p class="text-xs-center">Sign in to start work</p>
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
-                    <div 
-                        class="form-group"
-                        [ngClass]="{'has-error': form.get('email').invalid && form.get('email').touched}"
-                    >
-                        <label for="email">Email</label>
-                        <input
-                            type="text"
-                            class="form-control underlined"
-                            id="email"
-                            placeholder="Your email"
-                            formControlName="email"
-                        >
-                    </div>
+<p class="text-xs-center">Войдите для работы</p>
+<div
+  class="alert alert-{{message.type}}"
+  *ngIf="message.text"
+>
+  {{message.text}}
+</div>
 
-                        <span 
-                        class="form-help-text"
-                        *ngIf="form.get('email').invalid && form.get('email').touched" >
-                            <span *ngIf="form.get('email')['errors'] ['required']">Please enter an email.</span>
-                            <span *ngIf="form.get('email')['errors'] ['email']">Please enter a valid email.</span>
-                        </span>   
-                
-                    <div 
-                        class="form-group"
-                        [ngClass]="{'has-error': form.get('password').invalid && form.get('password').touched}"
-                    >
-                        <label for="password">Password</label>
-                        <input
-                            type="password"
-                            class="form-control underlined"
-                            id="password"
-                            placeholder="Your password"
-                            formControlName="password"
-                        >
-                    </div>
- 
-                    <span 
-                    class="form-help-text"
-                    *ngIf="form.get('password').invalid && form.get('password').touched" >
-                        <span *ngIf="form.get('password')['errors'] ['required']">Please enter password.</span>
-                        <span *ngIf="form.get('password')['errors']['minlength']">
-                                Password must be longer then
-                                {{ form.get('password')['errors']['minlength']['requiredLength'] }}
-                                characters. Now you have {{ form.get('password')['errors']['minlength']['actualLength'] }}.
-                              </span>
-                    </span>  
-
-                    <div class="form-group">
-                        <button 
-                            type="submit" 
-                            class="btn btn-block btn-primary"
-                            [disabled]="form.invalid"
-                        >
-                        Sign In
-                        </button>
-                    </div>
-                    <div class="form-group">
-                        <p class="text-muted text-xs-center">
-                            No account? <a href="#">Sign up!</a>
-                        </p>
-                    </div>
-         </form>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div
+    class="form-group"
+    [ngClass]="{'has-error': form.get('email').invalid && form.get('email').touched}"
+  >
+    <label for="email">Email</label>
+    <input
+      type="text"
+      class="form-control underlined"
+      id="email"
+      placeholder="Your email."
+      formControlName="email"
+    >
+    <span
+      class="form-help-text"
+      *ngIf="form.get('email').invalid && form.get('email').touched"
+    >
+      <span *ngIf="form.get('email')['errors']['required']">Please, enter your email.</span>
+      <span *ngIf="form.get('email')['errors']['email']">Email is incorect.</span>
+    </span>
+  </div>
+  <div
+    class="form-group"
+    [ngClass]="{'has-error': form.get('password').invalid && form.get('password').touched}"
+  >
+    <label for="password">Password</label>
+    <input
+      type="password"
+      class="form-control underlined"
+      id="password"
+      placeholder="Your password."
+      formControlName="password"
+    >
+    <span
+      class="form-help-text"
+      *ngIf="form.get('password').invalid && form.get('password').touched"
+    >
+      <span *ngIf="form.get('password')['errors']['required']">Please, enter your password.</span>
+      <span *ngIf="form.get('password')['errors']['minlength']">
+        Password must be longer then
+        {{ form.get('password')['errors']['minlength']['requiredLength'] }}
+        charcters. Now you have {{ form.get('password')['errors']['minlength']['actualLength'] }}.
+      </span>
+    </span>
+  </div>
+  <div class="form-group">
+    <button
+      type="submit"
+      class="btn btn-block btn-primary"
+      [disabled]="form.invalid"
+    >
+      Login
+    </button>
+  </div>
+  <div class="form-group">
+    <p class="text-muted text-xs-center">
+      No account? <a href="#">Sign up!</a>
+    </p>
+  </div>
+</form>
