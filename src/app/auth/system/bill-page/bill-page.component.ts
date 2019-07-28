@@ -21,14 +21,15 @@ export class BillPageComponent implements OnInit, OnDestroy {
   constructor(private billService: BillService) { }
 
   ngOnInit() {
-    zip(
-      this.billService.getBill(),
-      this.billService.getCurrency()
-    ).subscribe((data: [Bill, any]) => {
-      this.bill = data[0];
-      this.currency = data[1];
-      this.isLoaded = true
-    });
+  this.sub1 =
+      zip(
+        this.billService.getBill(),
+        this.billService.getCurrency()
+      ).subscribe((data: [Bill, any]) => {
+        this.bill = data[0];
+        this.currency = data[1];
+        this.isLoaded = true
+      });
   }
 
   onRefresh() {
@@ -41,8 +42,8 @@ export class BillPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.sub1.unsubscribe();
-    this.sub2.unsubscribe();
+    this.sub1.unsubscribe;
+    if(this.sub2) { this.sub2.unsubscribe() }
   }
 
 }
