@@ -5,18 +5,19 @@ import { User } from '../models/user.model';
 import { Observable } from 'rxjs';
 import { HttpClient} from '@angular/common/http';
 import { map } from 'rxjs/operators'
+import { BaseApi } from '../core/base-api';
 
 
 @Injectable()
-export class UsersService {
-  constructor(private httpClient: HttpClient ) {}
+export class UsersService extends BaseApi {
+  constructor(public httpClient: HttpClient ) { super (httpClient)}
 
   getUserByEmail(email: string): Observable<User> {
-    return this.httpClient.get(`http://localhost:3000/users?email=${email}`)
+    return this.get(`users?email=${email}`)
       .pipe(map((user: User[]) => user[0] ? user[0] : undefined));
   }
 
   createNewUser(user: User): Observable<User>{
-    return this.httpClient.post<User>(`http://localhost:3000/users`, user);
+    return this.post(`users`, user);
   }
 }
