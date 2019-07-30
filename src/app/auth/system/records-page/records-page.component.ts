@@ -8,6 +8,7 @@ import { CategoriesService } from '../shared/services/categories.service';
   styleUrls: ['./records-page.component.scss']
 })
 export class RecordsPageComponent implements OnInit {
+  
   categories: Category[] = [];
   isLoaded = false;
 

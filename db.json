@@ -32,6 +32,26 @@
       "id": 3,
       "name": "Car",
       "capacity": 7000
+    },
+    {
+      "name": "neW21",
+      "capacity": 1,
+      "id": 4
+    },
+    {
+      "name": "new",
+      "capacity": 1,
+      "id": 5
+    },
+    {
+      "name": "2131",
+      "capacity": 1,
+      "id": 6
+    },
+    {
+      "name": "asfaw",
+      "capacity": 1345235,
+      "id": 7
     }
   ],
   "events": [

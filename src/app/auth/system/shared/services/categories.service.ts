@@ -1,14 +1,14 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Category } from '../models/category.model';
+import { HttpClient } from '@angular/common/http';
 import { BaseApi } from 'src/app/shared/core/base-api';
 import { Observable } from 'rxjs';
 
 @Injectable()
 export class CategoriesService extends BaseApi {
-  constructor(public httClientp: HttpClient) {
-    super(httClientp);
+  constructor(public httpClient: HttpClient) {
+    super(httpClient);
   }
 
   addCategory(category: Category): Observable<Category> {
@@ -20,6 +20,7 @@ export class CategoriesService extends BaseApi {
   }
 
   updateCategory(category: Category): Observable<Category> {
-    return this.put('categories/${category.id}', category);
+    return this.put(`categories/${category.id}`, category);
   }
 }
+
