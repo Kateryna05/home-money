@@ -5,6 +5,10 @@
       </div>
     </div>
     <div class="card-block">
+        <div 
+        class="alert alert-{{message.type}}"
+        *ngIf="message.text">
+        {{message.text}}</div>
       <form #f="ngForm" (ngSubmit)="onSubmit(f)">
         <div
           class="form-group"
@@ -50,6 +54,7 @@
         <button
           type="submit"
           class="btn btn-primary"
+          [disabled]="f.invalid"
         >Add</button>
       </form>
     </div>
