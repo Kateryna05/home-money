@@ -17,6 +17,12 @@ export class BillService extends BaseApi{
         
     }
 
+    updateBill(bill: Bill): Observable<Bill>{
+        return this.put('bill', bill);
+    }
+
+
+
     getCurrency(base: string = 'RUB'): Observable<any>{
         return this.httpClient.get(`https://api.exchangeratesapi.io/latest?base=${base}`)
 

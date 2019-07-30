@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { CommonModule } from '@angular/common';
 
 import { SharedModule } from 'src/app/shared/shared.module';
@@ -19,6 +19,7 @@ import { AddEventComponent } from './records-page/add-event/add-event.component'
 import { AddCategoryComponent } from './records-page/add-category/add-category.component';
 import { EditCategoryComponent } from './records-page/edit-category/edit-category.component';
 import { CategoriesService } from './shared/services/categories.service';
+import { EventService } from './shared/services/events.service';
 
 
 
@@ -41,7 +42,8 @@ import { CategoriesService } from './shared/services/categories.service';
         AddCategoryComponent,
         EditCategoryComponent,
     ],
-    providers: [BillService, CategoriesService]
+    schemas: [ CUSTOM_ELEMENTS_SCHEMA],
+    providers: [BillService, CategoriesService, EventService]
 })
 
 export class SystemModule{
