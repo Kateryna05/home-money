@@ -60,7 +60,7 @@ export class AddEventComponent implements OnInit , OnDestroy{
               this.showMessage('danger' ,`Not enough money in the account. You lack ${amount - bill.value}`);
               return;
              }
-            else{ value = bill.value - amount}
+            else{ value = bill.value - amount ; this.showMessage('success', 'Successfly added new enent')}
           }
           else {  value = bill.value + amount; this.showMessage('success', 'Successfly added new enent')}
 
