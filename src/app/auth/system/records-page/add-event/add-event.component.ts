@@ -35,10 +35,11 @@ export class AddEventComponent implements OnInit , OnDestroy{
                private billService: BillService) { }
 
   ngOnInit() {
-    this.message = new Message ('danger', '')
+    this.message = new Message ('', '')
   }
 
-  private showMessage( text: string){
+  private showMessage(type, text: string){
+    this.message.type = type;
     this.message.text = text;
     window.setTimeout (() => this.message.text = '', 5000);
   }
@@ -56,12 +57,12 @@ export class AddEventComponent implements OnInit , OnDestroy{
           let value = 0;
           if( type === 'outcome'){
             if(amount > bill.value){ 
-              this.showMessage(`Not enough money in the account. You lack ${amount - bill.value}`);
+              this.showMessage('danger' ,`Not enough money in the account. You lack ${amount - bill.value}`);
               return;
              }
             else{ value = bill.value - amount}
           }
-          else {  value = bill.value + amount}
+          else {  value = bill.value + amount; this.showMessage('success', 'Successfly added new enent')}
 
          this.sub2 = this.billService.updateBill({value, currency: bill.currency})
           .pipe(mergeMap( () => this.eventsService.addEvent(event)))
@@ -79,8 +80,8 @@ export class AddEventComponent implements OnInit , OnDestroy{
 
 
   ngOnDestroy() {
-    if( this.sub1) this.sub1.unsubscribe;
-    if( this.sub2) this.sub2.unsubscribe;
+    if( this.sub1) this.sub1.unsubscribe();
+    if( this.sub2) this.sub2.unsubscribe();
   }
 
   

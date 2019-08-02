@@ -17,4 +17,8 @@ export class EventService extends BaseApi{
         return this.post('events', event);
     }
 
+    getEvents (): Observable<WFMEvent[]>{
+        return this.get('events');
+    }
+
 }
