@@ -33,21 +33,21 @@
                   <thead>
                   <tr>
                     <th>#</th>
-                    <th>Amount</th>
-                    <th>Date</th>
-                    <th>Category</th>
-                    <th>Type</th>
+                    <th class="text-lg-center">Amount</th>
+                    <th class="text-lg-center">Date</th>
+                    <th class="text-lg-center">Category</th>
+                    <th class="text-lg-center">Type</th>
                     <th class="text-lg-center">Event</th>
                   </tr>
                   </thead>
                   <tbody>
                   <tr *ngFor="let e of events | wfmFilter:searchValue:searchField; let idx=index">
                     <th scope="row">{{idx + 1}}</th>
-                    <td>{{e.amount | number: '1.2'}}</td>
-                    <td>{{e.date | wfmMoment: 'DD.MM.YYYY HH:mm:ss'}}</td>
-                    <td>{{ e.catName }}</td>
-                    <td>
-                      <span [ngClass]="getEventClass(e)" style="font-size: 15px"> 
+                    <td class="text-lg-center">{{e.amount | number: '1.2'}}</td>
+                    <td class="text-lg-center">{{e.date | wfmMoment: 'DD.MM.YYYY HH:mm:ss'}}</td>
+                    <td class="text-lg-center">{{ e.catName }}</td>
+                    <td class="text-lg-center">
+                      <span [ngClass]="getEventClass(e)" style="font-size: 15px" > 
                         <span *ngIf="e.type === 'income'">Money in come</span> 
                         <span *ngIf="e.type === 'outcome'">Spending of money</span>
                       </span>
