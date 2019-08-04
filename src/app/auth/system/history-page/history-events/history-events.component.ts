@@ -10,6 +10,9 @@ import { WFMEvent } from '../../shared/models/event.model';
 export class HistoryEventsComponent implements OnInit {
   @Input() categories: Category[] = [];
   @Input() events: WFMEvent[] = [];
+  searchValue = '';
+  searchPlaceholder = 'Amount';
+  searchField = 'amount';
 
   constructor() { }
 
@@ -25,6 +28,17 @@ export class HistoryEventsComponent implements OnInit {
       'label-danger': e.type ==='outcome',
       'label-success': e.type ==='income',
     }
+  }
+
+  changeCriteria( field: string){
+      const namesMap = {
+        amount: 'Amount',
+        date : 'Date',
+        category: 'Category',
+        type: 'Type'
+      }
+      this.searchPlaceholder = namesMap[field];
+      this.searchField = field;
   }
 
 }

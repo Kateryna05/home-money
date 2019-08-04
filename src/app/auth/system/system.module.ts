@@ -24,6 +24,7 @@ import { HistoryChartComponent } from './history-page/history-chart/history-char
 import { HistoryEventsComponent } from './history-page/history-events/history-events.component';
 import { HistoryDetailComponent } from './history-page/history-detail/history-detail.component';
 import { HistoryFilterComponent } from './history-page/history-filter/history-filter.component';
+import { FilterPipe } from './shared/pipes/filter.pipe';
 
 
 
@@ -49,6 +50,7 @@ import { HistoryFilterComponent } from './history-page/history-filter/history-fi
         HistoryEventsComponent,
         HistoryDetailComponent,
         HistoryFilterComponent,
+        FilterPipe
     ],
     schemas: [ CUSTOM_ELEMENTS_SCHEMA],
     providers: [BillService, CategoriesService, EventService]
