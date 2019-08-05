@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { UsersService } from './shared/services/users.service';
 import { AuthService } from './shared/services/auth.service';
 import { SystemModule } from './auth/system/system.module';
+import { AuthGuard } from './shared/services/auth.guard';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { SystemModule } from './auth/system/system.module';
     
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA],
-  providers: [UsersService, AuthService],
+  providers: [UsersService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
