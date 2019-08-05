@@ -2,12 +2,15 @@
     <div class="row">
         <div class="col-xs-12 text-center chart-center" >
              <ngx-charts-pie-chart
-                [view]="[575, 355]"
+                [view]="[1000, 400]"
+                [scheme]="colorScheme"
                 [results] = "data"
-                [legend]="false"
-                [explodeSlices]="false"
-                [labels]="true"
-                [doughnut]="true">
+                [legend]="true"
+                [explodeSlices]="true"
+                [doughnut]="true"
+                [arcWidth]=0.35
+                [legendTitle]="' '"
+            >
              </ngx-charts-pie-chart>
         </div>            
     </div>

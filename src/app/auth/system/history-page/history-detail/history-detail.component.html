@@ -16,9 +16,9 @@
         }">
           <div class="card-header" >
             <div class="header-block">
-              <p class="title">
-                <span style="color: white" *ngIf="event.type === 'income'">Money in come</span>
-                <span style="color: white" *ngIf="event.type === 'outcome'">Spending of money</span>
+              <p class="title" style="color: white">
+                <span *ngIf="event.type === 'income'">Money in come</span>
+                <span *ngIf="event.type === 'outcome'">Spending of money</span>
               </p>
             </div>
           </div>
