@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, HostBinding } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { Category } from '../../shared/models/category.model';
@@ -10,14 +10,17 @@ import { Bill } from '../../shared/models/bill.model';
 import { mergeMap } from 'rxjs/operators';
 import { Message } from 'src/app/shared/models/message.model';
 import { Subscription } from 'rxjs';
+import { fadeStateTrigger } from '../../shared/animations/fade.animation';
 
 @Component({
   selector: 'wfm-add-event',
   templateUrl: './add-event.component.html',
-  styleUrls: ['./add-event.component.scss']
+  styleUrls: ['./add-event.component.scss'],
+  animations: [fadeStateTrigger]
+ 
 })
 export class AddEventComponent implements OnInit , OnDestroy{
-  
+   @HostBinding('@fade') a = true;
 
   sub1: Subscription;
   sub2: Subscription;

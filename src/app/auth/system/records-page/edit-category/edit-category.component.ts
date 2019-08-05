@@ -1,16 +1,21 @@
-import { Component, EventEmitter, Input, OnInit, Output, OnDestroy } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, OnDestroy, HostBinding } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Category } from '../../shared/models/category.model';
 import { CategoriesService } from '../../shared/services/categories.service';
 import { Message } from 'src/app/shared/models/message.model';
 import { Subscription } from 'rxjs';
+import { fadeStateTrigger } from '../../shared/animations/fade.animation';
 
 @Component({
   selector: 'wfm-edit-category',
   templateUrl: './edit-category.component.html',
-  styleUrls: ['./edit-category.component.scss']
+  styleUrls: ['./edit-category.component.scss'],
+  animations: [fadeStateTrigger]
 })
 export class EditCategoryComponent implements OnInit, OnDestroy {
+
+  @HostBinding('@fade') a = true;
+
   @Input() categories: Category[] = [];
   @Output() onCategoryEdit = new EventEmitter<Category>();
 

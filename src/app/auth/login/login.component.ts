@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
@@ -6,15 +6,18 @@ import { UsersService } from '../../shared/services/users.service';
 import { User } from '../../shared/models/user.model';
 import { Message } from '../../shared/models/message.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { fadeStateTrigger } from '../system/shared/animations/fade.animation';
 
 
 @Component({
   selector: 'wfm-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  animations: [fadeStateTrigger]
+ 
 })
 export class LoginComponent implements OnInit {
-
+ @HostBinding('@fade') a = true;
   form: FormGroup;
   message: Message;
 
