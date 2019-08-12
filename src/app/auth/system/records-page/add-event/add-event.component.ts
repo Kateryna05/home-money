@@ -74,7 +74,7 @@ export class AddEventComponent implements OnInit , OnDestroy{
               amount:0,
               description: ' ',
               category: 1,
-              type: 'oucome'
+              type: 'outcome'
             })
           });
         })

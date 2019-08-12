@@ -1,16 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { UsersService } from '../../shared/services/users.service';
 import { User } from '../../shared/models/user.model';
+import { fadeStateTrigger } from '../system/shared/animations/fade.animation';
 
 @Component({
   selector: 'wfm-registration',
   templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.scss']
+  styleUrls: ['./registration.component.scss'],
+  animations: [fadeStateTrigger]
 })
 export class RegistrationComponent implements OnInit {
+  @HostBinding('@fade') a = true;
 
   form: FormGroup;
 

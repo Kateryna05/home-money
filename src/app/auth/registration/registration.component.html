@@ -1,6 +1,7 @@
 <p class="text-xs-center">Registration for access</p>
 <form [formGroup] = "form" (ngSubmit)="onSubmit()">
   <div 
+    @fade
     class="form-group"
     [ngClass]="{'has-error': form.get('email').invalid && form.get('email').touched}"
   >
@@ -73,13 +74,7 @@
     [ngClass]="{'has-error': form.get('agree').invalid && form.get('agree').touched}"
   >
     <label for="agree">
-      <input 
-      class="checkbox" 
-      id="agree" 
-      type="checkbox"
-      formControlName="agree"
-        >
-      <span>Agree to Terms of Service.</span>
+     <input id="agree" type="checkbox" formControlName="agree" ><span> Agree to Terms of Service.</span>
     </label>
   </div>
   <div class="form-group">

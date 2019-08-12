@@ -19,7 +19,6 @@
             <div>
                 <label *ngFor="let t of types">
                     <input
-                      class="checkbox"
                       type="checkbox"
                       [value]="t.type"
                       (change)="handleChangeType($event.target)"
@@ -33,7 +32,6 @@
             <div>
               <label *ngFor="let c of categories">
                 <input
-                  class="checkbox"
                   type="checkbox"
                   [value]="c.id"
                   (change)="handleChangeCategory($event.target)"

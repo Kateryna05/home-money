@@ -8,7 +8,7 @@ export const fadeStateTrigger = trigger('fade', [
         }),
         animate(700)
     ]),
-    transition (':leave', animate(700, style({
+    transition (':leave', animate(0, style({
         opacity: 0
     })))
 ]);
